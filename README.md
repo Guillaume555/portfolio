@@ -1,43 +1,57 @@
-# Astro Starter Kit: Minimal
+# Portfolio — Guillaume
 
-```sh
-npm create astro@latest -- --template minimal
+Portfolio de développeur full-stack junior, en recherche d'alternance **Concepteur Développeur d'Applications** (EPSI, rythme 2 semaines entreprise / 1 semaine école).
+
+🔗 Site en ligne : _à venir_
+
+## Stack
+
+- [Astro](https://astro.build) — génération du site (HTML statique, composants)
+- [Tailwind CSS](https://tailwindcss.com) — style
+- Déploiement : Vercel _(à venir)_
+
+## Lancer le projet en local
+
+Prérequis : Node.js (version LTS récente) et npm.
+
+```bash
+git clone https://github.com/<ton-pseudo>/portfolio.git
+cd portfolio
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Le site est ensuite visible sur `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Scripts
 
-Inside of your Astro project, you'll see the following folders and files:
+| Commande          | Rôle                                            |
+| ----------------- | ----------------------------------------------- |
+| `npm run dev`     | Serveur de développement avec rechargement auto |
+| `npm run build`   | Génère le site final dans `dist/`               |
+| `npm run preview` | Prévisualise le site généré                     |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+## Structure
+
+```
+src/
+├── components/   composants réutilisables (Header, Hero…)
+├── layouts/      gabarit commun des pages
+├── pages/        une page = un fichier (routage par fichiers)
+└── styles/       global.css + design tokens
+public/           fichiers servis tels quels (images, CV)
+docs/             cahier des charges, charte graphique
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Documentation
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- [Cahier des charges](docs/cahier-des-charges.md) — objectifs, périmètre, feuille de route, suivi des itérations
+- [Charte graphique](docs/charte-graphique.md) — couleurs, typo, composants
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Avancement
 
-## 🧞 Commands
+Phase en cours : **1 — Fondations**. Détail dans le cahier des charges.
 
-All commands are run from the root of the project, from a terminal:
+## Auteur
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Guillaume — développeur full-stack junior, Île-de-France.
