@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+/* mode clair (par défaut) */
+:root {
+  --fond: #f7f1e6;
+  --surface: #fffaf2;
+  --bordure: #ebe1d0;
+  --texte: #10202e;
+  --texte-doux: #3d4b57;
+  --accent: #0b6670;
+  --accent-doux: #dcefed;
+  --corail: #b4461f;
+}
+
+/* mode sombre */
+[data-theme="dark"] {
+  --fond: #0f1b26;
+  --surface: #172735;
+  --bordure: #2a3b4a;
+  --texte: #f3ece0;
+  --texte-doux: #b9c2c9;
+  --accent: #5cc8c2;
+  --accent-doux: #123b40;
+  --corail: #f2784b;
+}
+
+@theme inline {
+  --color-fond: var(--fond);
+  --color-surface: var(--surface);
+  --color-bordure: var(--bordure);
+  --color-texte: var(--texte);
+  --color-texte-doux: var(--texte-doux);
+  --color-accent: var(--accent);
+  --color-accent-doux: var(--accent-doux);
+  --color-corail: var(--corail);
+
+  --font-titre: "Bricolage Grotesque", sans-serif;
+  --font-texte: "DM Sans", sans-serif;
+}

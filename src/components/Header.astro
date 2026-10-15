@@ -1,0 +1,23 @@
+---
+const liens = [
+  { nom: "Projets", href: "#projets" },
+  { nom: "Mon approche", href: "#approche" },
+  { nom: "Parcours", href: "#parcours" },
+  { nom: "Contact", href: "#contact" },
+];
+---
+<header class="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-8">
+  <a href="/" class="font-titre text-2xl font-extrabold">
+    Guillaume<span class="text-corail">.</span>
+  </a>
+
+  <nav aria-label="Navigation principale">
+    <ul class="hidden gap-8 text-[15px] font-medium md:flex">
+      {liens.map((l) => (
+        <li>
+          <a href={l.href} class="transition-colors hover:text-accent">{l.nom}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
