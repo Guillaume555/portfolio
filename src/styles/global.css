@@ -34,6 +34,18 @@
   --color-accent-doux: var(--accent-doux);
   --color-corail: var(--corail);
 
+  /* cadre photo */
+  --color-degrade-1: #5cc8c2;
+  --color-degrade-2: #f2784b;
+
   --font-titre: "Bricolage Grotesque", sans-serif;
   --font-texte: "DM Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 2rem;
 }

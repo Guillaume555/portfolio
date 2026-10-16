@@ -1,0 +1,55 @@
+---
+import TitreSection from "./TitreSection.astro";
+import { parcours } from "../data/site";
+---
+<section id="parcours" class="mx-auto max-w-[1120px] px-6 py-16 md:py-24">
+  <TitreSection petit="Parcours" titre="Formations et alternances" />
+
+  <ol class="relative ml-2 space-y-14 border-l-2 border-bordure pl-8 md:pl-10">
+    {parcours.map((f) => (
+      <li class="relative">
+        <!-- formation -->
+        <span class="absolute top-1 -left-[43px] h-5 w-5 rounded-full border-4 border-fond bg-accent md:-left-[51px]"></span>
+        <p class="text-sm font-medium text-corail">{f.periode} · Formation</p>
+        <h3 class="mt-1 font-titre text-2xl font-extrabold">{f.diplome}</h3>
+        <p class="text-texte-doux">{f.ecole} · {f.niveau}</p>
+        {f.texte && <p class="mt-2 max-w-2xl text-texte-doux">{f.texte}</p>}
+
+        <!-- entreprises pendant la formation -->
+        {f.experiences.length > 0 && (
+          <ul class="mt-6 grid gap-4 md:grid-cols-2">
+            {f.experiences.map((e) => (
+              <li class="rounded-[20px] border border-bordure bg-surface p-5">
+                <div class="flex flex-wrap items-center gap-2 text-xs font-medium">
+                  <span class="rounded-full bg-accent-doux px-2.5 py-1 text-accent">{e.type}</span>
+                  <span class="text-texte-doux">{[e.dates, e.lieu].filter(Boolean).join(" · ")}</span>
+                </div>
+                <h4 class="mt-3 font-titre text-lg font-extrabold">{e.entreprise}</h4>
+                <p class="text-sm text-texte-doux">{e.poste}</p>
+                <p class="mt-2 text-sm">{e.resume}</p>
+
+                {e.missions.length > 0 && (
+                  <details class="group mt-3 text-sm">
+                    <summary class="cursor-pointer font-medium text-accent">Voir les missions</summary>
+                    <ul class="mt-2 list-disc space-y-1 pl-5 text-texte-doux">
+                      {e.missions.map((m) => <li>{m}</li>)}
+                    </ul>
+                  </details>
+                )}
+
+                <div class="mt-4 flex flex-wrap items-center gap-2">
+                  {e.tags.map((t) => (
+                    <span class="rounded-full border border-bordure px-2.5 py-0.5 text-xs text-texte-doux">{t}</span>
+                  ))}
+                  {e.lien && (
+                    <a href={e.lien} class="ml-auto text-sm font-medium text-accent hover:underline">Le projet →</a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ol>
+</section>

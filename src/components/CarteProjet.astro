@@ -1,0 +1,30 @@
+---
+const { projet } = Astro.props;
+const p = projet.data;
+---
+<article class="flex flex-col overflow-hidden rounded-[20px] border border-bordure bg-surface">
+  <!-- capture du site -->
+  {p.capture ? (
+    <img src={p.capture} alt={`Page d'accueil de ${p.titre}`} loading="lazy" class="aspect-[16/10] w-full border-b border-bordure object-cover object-top" />
+  ) : (
+    <div class="flex aspect-[16/10] w-full items-center justify-center border-b border-bordure bg-accent-doux text-sm text-accent">
+      Capture à venir
+    </div>
+  )}
+
+  <div class="flex flex-1 flex-col p-6 md:p-8">
+    <p class="text-sm font-medium text-corail">{p.label}</p>
+    <h3 class="mt-2 font-titre text-2xl font-extrabold">{p.titre}</h3>
+    <p class="mt-3 text-texte-doux">{p.resume}</p>
+
+    <ul class="mt-5 flex flex-wrap gap-2">
+      {p.stack.map((techno) => (
+        <li class="rounded-full bg-accent-doux px-3 py-1 text-xs font-medium text-accent">{techno}</li>
+      ))}
+    </ul>
+
+    <a href={`/projets/${projet.id}`} class="mt-auto inline-flex items-center gap-2 self-start pt-6 font-medium text-accent hover:underline">
+      Voir l'étude de cas <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>

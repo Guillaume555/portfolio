@@ -1,0 +1,31 @@
+---
+import TitreSection from "./TitreSection.astro";
+
+const points = [
+  {
+    titre: "L'IA pour aller plus vite",
+    texte: "J'utilise des assistants IA au quotidien pour prototyper, explorer une techno ou débloquer un problème. Mes projets ont un fichier AGENTS.md qui cadre leur travail.",
+  },
+  {
+    titre: "Comprendre ce que je livre",
+    texte: "Je ne garde pas un code que je ne sais pas expliquer. Je relis, je reformule, je corrige ce que l'IA propose.",
+  },
+  {
+    titre: "Vérifier avant de livrer",
+    texte: "Tests dans le navigateur, sur mobile, versionnement avec Git à chaque étape : je reste responsable de ce qui part en prod.",
+  },
+];
+---
+<section id="approche" class="mx-auto max-w-[1120px] px-6 py-16 md:py-24">
+  <TitreSection petit="Mon approche" titre="Rapide, mais maîtrisé" />
+
+  <div class="grid gap-6 md:grid-cols-3">
+    {points.map((pt, i) => (
+      <div class="rounded-[20px] border border-bordure bg-surface p-6">
+        <p class="font-titre text-3xl font-extrabold text-accent">0{i + 1}</p>
+        <h3 class="mt-3 font-titre text-xl font-extrabold">{pt.titre}</h3>
+        <p class="mt-2 text-texte-doux">{pt.texte}</p>
+      </div>
+    ))}
+  </div>
+</section>

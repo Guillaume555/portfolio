@@ -25,29 +25,38 @@ Ancien portfolio perdu, ainsi qu'une partie des anciens projets. Le nouveau port
 - Page d'accueil : header, hero (dispo alternance + photo), projets à la une, mon approche (IA), parcours, contact, footer.
 - Pages projets en étude de cas : **Carib Holidays**, **EcoRide**.
 - CV téléchargeable (PDF).
+- Bouton « Copier mon email » dans la section contact.
 - Responsive (mobile en priorité), accessibilité de base, SEO de base.
 - Mise en ligne sur Vercel.
-- Portfolio interactif au style original (univers personnel, pas de franchise existante), réutilisant les mêmes données projets.
 
 ### Après la V1
 
-- Mode sombre avec bouton de bascule.
+- Mode sombre avec bouton de bascule (tokens déjà en place).
 - Nom de domaine perso.
 - Refonte avant/après de l'ancien site (hors WordPress).
 - Nouveau projet « application » avec une fonctionnalité IA.
+- Portfolio interactif au style original (univers personnel, pas de franchise existante), réutilisant les mêmes données projets.
 - Animations légères.
 
 ### Hors périmètre
 
 - Blog, version anglaise (à réévaluer plus tard).
+- Barres de compétences notées (peu crédibles pour un recruteur).
+
+### Décisions de structure (16/10/2026)
+
+- **Direction** : base sobre + interactions utiles (options A + B). Un concept plus audacieux (C) pourra venir plus tard, en évolution ou en portfolio à part.
+- **Parcours** : une frise unique, organisée par formation (EPSI → Studi → IUT MMI), avec les entreprises rattachées à la formation pendant laquelle j'y ai travaillé (Carib Holidays, Thalia Caraïbes, CSBF, stage Aligné). Missions repliables pour ne pas surcharger. Si la frise reste trop chargée : détails déplacés vers une carte « Autres projets ».
+- **Projets principaux** (captures + étude de cas) : Carib Holidays (une seule étude de cas couvrant les 2 sites : Carib Holidays et Vacances Dominique) et EcoRide. Un 3e projet viendra plus tard.
+- **Source de vérité** pour les dates et intitulés : le CV.
 
 ## 5. Arborescence
 
 ```
-/                      Accueil
+/                        Accueil
 /projets/carib-holidays  Étude de cas
 /projets/ecoride         Étude de cas
-/cv.pdf                  CV
+/cv-guillaume.pdf        CV
 ```
 
 ## 6. Contenu d'une étude de cas
@@ -56,20 +65,21 @@ Contexte · problème · mon rôle · stack · 2-3 décisions techniques · une 
 
 ## 7. Exigences techniques
 
-| Domaine       | Exigence                                                                        |
-| ------------- | ------------------------------------------------------------------------------- |
-| Stack         | Astro + Tailwind CSS                                                            |
-| Données       | Projets dans des fichiers de contenu (content collections), séparés du code     |
-| Style         | Couleurs uniquement via les tokens de la charte (prépare le mode sombre)        |
-| Responsive    | Mobile d'abord, testé de 360 px à 1440 px                                       |
-| Accessibilité | Contrastes AA, navigation clavier, textes alternatifs, HTML sémantique          |
-| SEO           | Title + description par page, image de partage, sitemap                         |
-| Performance   | Objectif Lighthouse ≥ 95 sur les 4 catégories                                   |
-| Versionnement | Git + GitHub dès le jour 1, commits clairs (`feat:`, `fix:`, `docs:`, `chore:`) |
+| Domaine | Exigence |
+|---|---|
+| Stack | Astro + Tailwind CSS v4 |
+| Données | Projets dans des fichiers de contenu (content collections), séparés du code |
+| Style | Couleurs uniquement via les tokens de la charte ; mode sombre via `data-theme` |
+| Responsive | Mobile d'abord, testé de 360 px à 1440 px |
+| Accessibilité | Contrastes AA, navigation clavier, textes alternatifs, HTML sémantique |
+| SEO | Title + description par page, image de partage, sitemap |
+| Performance | Objectif Lighthouse ≥ 95 sur les 4 catégories |
+| Versionnement | Git + GitHub dès le jour 1, commits clairs (`feat:`, `fix:`, `docs:`, `chore:`), fins de ligne LF |
+| IA | Consignes du projet dans `AGENTS.md` (importé par `CLAUDE.md`) |
 
 ## 8. Contenus à fournir
 
-- [ ] Accroche + présentation courte
+- [ ] Accroche + présentation courte (version provisoire en place dans le hero)
 - [ ] Texte du parcours
 - [ ] Photo
 - [ ] CV PDF à jour
@@ -78,19 +88,23 @@ Contexte · problème · mon rôle · stack · 2-3 décisions techniques · une 
 
 ## 9. Feuille de route
 
-| Phase                | Contenu                                                  | Statut      |
-| -------------------- | -------------------------------------------------------- | ----------- |
-| 0 — Cadrage          | Objectifs, cible, stack, direction visuelle (caribéenne) | ✅ Fait     |
-| 1 — Fondations       | Projet Astro, GitHub, tokens, layout, déploiement        | 🔄 En cours |
-| 2 — Contenu          | Textes, captures, fichiers projets                       | ⏳          |
-| 3 — Accueil          | Sections une par une                                     | ⏳          |
-| 4 — Pages projets    | Gabarit étude de cas                                     | ⏳          |
-| 5 — Qualité          | Mobile, a11y, SEO, perf, mode sombre                     | ⏳          |
-| 6 — Mise en ligne V1 | Relecture, domaine, liens CV/LinkedIn                    | ⏳          |
-| 7 — Itérations       | Nouveaux projets, mises à jour                           | ⏳          |
+| Phase | Contenu | Statut |
+|---|---|---|
+| 0 — Cadrage | Objectifs, cible, stack, direction visuelle (caribéenne) | ✅ Fait |
+| 1 — Fondations | Projet Astro, GitHub, tokens, layout, déploiement | ✅ Fait (déploiement reporté) |
+| 2 — Contenu | Textes, captures, fichiers projets | ⏳ |
+| 3 — Accueil | Sections une par une | 🔄 En cours (header, hero) |
+| 4 — Pages projets | Gabarit étude de cas | ⏳ |
+| 5 — Qualité | Mobile, a11y, SEO, perf, mode sombre | ⏳ |
+| 6 — Mise en ligne V1 | Relecture, domaine, liens CV/LinkedIn | ⏳ |
+| 7 — Itérations | Nouveaux projets, portfolio interactif, mises à jour | ⏳ |
 
 ## 10. Suivi des itérations
 
-| Date       | Itération | Changements                                                                                                                                       |
-| ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 14/10/2026 | Cadrage   | Choix d'Astro + Tailwind, direction visuelle caribéenne validée sur maquette, création du README, du cahier des charges et de la charte graphique |
+| Date | Itération | Changements |
+|---|---|---|
+| 14/10/2026 | Cadrage | Choix d'Astro + Tailwind, direction visuelle caribéenne validée sur maquette, création du README, du cahier des charges et de la charte graphique |
+| 15/10/2026 | Fondations | Dépôt GitHub, AGENTS.md / CLAUDE.md, design tokens clair/sombre (couleurs sombres provisoires), Layout commun, polices, réglages VS Code |
+| 16/10/2026 | Accueil — haut de page | Header et Hero (badge dispo, accroche, bio, boutons, emplacement photo), fins de ligne LF |
+| 16/10/2026 | Accueil complète | Sections Projets (collection de contenu, emplacements captures), Mon approche, Parcours, Contact (copier l'email), Footer ; pages projets simples |
+| 16/10/2026 | Structure | Frise par formation avec entreprises rattachées (données du CV), étude de cas Carib Holidays sur 2 sites, décisions de structure |

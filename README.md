@@ -7,7 +7,7 @@ Portfolio de développeur full-stack junior, en recherche d'alternance **Concept
 ## Stack
 
 - [Astro](https://astro.build) — génération du site (HTML statique, composants)
-- [Tailwind CSS](https://tailwindcss.com) — style
+- [Tailwind CSS v4](https://tailwindcss.com) — style, avec des design tokens clair/sombre
 - Déploiement : Vercel _(à venir)_
 
 ## Lancer le projet en local
@@ -15,7 +15,7 @@ Portfolio de développeur full-stack junior, en recherche d'alternance **Concept
 Prérequis : Node.js (version LTS récente) et npm.
 
 ```bash
-git clone https://github.com/<ton-pseudo>/portfolio.git
+git clone https://github.com/Guillaume555/portfolio.git
 cd portfolio
 npm install
 npm run dev
@@ -36,21 +36,27 @@ Le site est ensuite visible sur `http://localhost:4321`.
 ```
 src/
 ├── components/   composants réutilisables (Header, Hero…)
-├── layouts/      gabarit commun des pages
+├── layouts/      gabarit commun des pages (Layout.astro)
 ├── pages/        une page = un fichier (routage par fichiers)
-└── styles/       global.css + design tokens
+└── styles/       global.css : design tokens clair/sombre
 public/           fichiers servis tels quels (images, CV)
 docs/             cahier des charges, charte graphique
 ```
+
+## Design
+
+Couleurs et polices définies dans `src/styles/global.css` à partir de la [charte graphique](docs/charte-graphique.md). Le mode sombre passe par l'attribut `data-theme` sur `<html>`.
 
 ## Documentation
 
 - [Cahier des charges](docs/cahier-des-charges.md) — objectifs, périmètre, feuille de route, suivi des itérations
 - [Charte graphique](docs/charte-graphique.md) — couleurs, typo, composants
+- [AGENTS.md](AGENTS.md) — consignes pour les assistants IA de code
 
 ## Avancement
 
-Phase en cours : **1 — Fondations**. Détail dans le cahier des charges.
+- ✅ Fondations : projet, design tokens, layout commun
+- 🔄 Page d'accueil : header et hero faits, sections suivantes en cours
 
 ## Auteur
 

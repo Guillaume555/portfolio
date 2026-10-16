@@ -1,22 +1,35 @@
-## Development
+# AGENTS.md
 
-When starting the dev server, use background mode:
+## Projet
 
-```
-astro dev --background
-```
+Portfolio perso de Guillaume, dev full-stack junior. Objectif : décrocher une alternance CDA.
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+## Stack
 
-## Documentation
+- Astro + Tailwind CSS v4
+- Déploiement : Vercel (à venir)
 
-Full documentation: https://docs.astro.build
+## Commandes
 
-Consult these guides before working on related tasks:
+- `npm run dev` : serveur local (port 4321)
+- `npm run build` : build de prod dans `dist/`
 
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+## Structure
+
+- `src/components/` composants, `src/layouts/` gabarits, `src/pages/` routes
+- `src/styles/global.css` : design tokens (couleurs, polices)
+- `docs/` : cahier des charges + charte graphique (source de vérité du design)
+
+## Règles
+
+- Couleurs : uniquement les classes des tokens (`bg-fond`, `text-texte`, `text-accent`…), jamais de hexa en dur dans les composants
+- Mode sombre : passe par `data-theme` sur `<html>`, pas de classes `dark:`
+- Mobile d'abord, accessibilité AA (contrastes, clavier, alt)
+- Code : noms simples, en français pour le contenu
+- Commentaires : peu nombreux, courts, en français, seulement pour repérer les grandes sections (ex : `<!-- photo de profil -->`)
+- Ne jamais ajouter de dépendance sans me demander
+- Mettre à jour `docs/` et le README à la fin de chaque grosse section
+
+## Git
+
+Messages de commit : `feat:`, `fix:`, `docs:`, `chore:`

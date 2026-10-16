@@ -1,0 +1,41 @@
+---
+import { moi } from "../data/site";
+---
+<section class="mx-auto grid max-w-[1120px] items-center gap-12 px-6 py-16 md:grid-cols-[1.4fr_1fr] md:py-24">
+  <div>
+    <p class="mb-6 inline-flex items-center gap-2 rounded-full bg-accent-doux px-4 py-1.5 text-sm font-medium text-accent">
+      <span class="h-2 w-2 animate-pulse rounded-full bg-accent"></span>
+      Dispo en alternance · rythme 2 sem. / 1 sem.
+    </p>
+
+    <h1 class="font-titre text-4xl leading-[1.05] font-extrabold tracking-tight md:text-6xl">
+      Je conçois des applis web <span class="text-accent">utiles</span>, du code à la mise en prod.
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg text-texte-doux md:text-xl">
+      Développeur full-stack junior, de la Guadeloupe à l'Île-de-France. En formation Concepteur Développeur d'Applications à l'EPSI, je cherche une entreprise pour mon alternance.
+    </p>
+
+    <!-- boutons -->
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="#projets" class="inline-flex min-h-12 items-center rounded-full bg-texte px-6 font-medium text-fond transition hover:bg-accent">
+        Voir mes projets
+      </a>
+      <a href={moi.cv} download class="inline-flex min-h-12 items-center rounded-full border-2 border-texte px-6 font-medium transition hover:border-accent hover:text-accent">
+        Télécharger mon CV
+      </a>
+    </div>
+  </div>
+
+  <!-- photo de profil -->
+  <div class="relative mx-auto w-64 md:w-80">
+    <div class="absolute -inset-3 rotate-3 rounded-[2rem] bg-linear-to-br from-degrade-1 to-degrade-2"></div>
+    {moi.photo ? (
+      <img src={moi.photo} alt="Photo de Guillaume" class="relative aspect-square w-full rounded-[2rem] object-cover" />
+    ) : (
+      <div class="relative flex aspect-square w-full items-center justify-center rounded-[2rem] bg-surface text-texte-doux">
+        Ta photo ici
+      </div>
+    )}
+  </div>
+</section>

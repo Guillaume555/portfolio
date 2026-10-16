@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import TitreSection from "./TitreSection.astro";
+import CarteProjet from "./CarteProjet.astro";
+
+const projets = (await getCollection("projets", (p) => p.data.aLaUne))
+  .sort((a, b) => a.data.ordre - b.data.ordre);
+---
+<section id="projets" class="mx-auto max-w-[1120px] px-6 py-16 md:py-24">
+  <TitreSection petit="Projets" titre="Ce que j'ai construit" />
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {projets.map((projet) => <CarteProjet projet={projet} />)}
+  </div>
+</section>
