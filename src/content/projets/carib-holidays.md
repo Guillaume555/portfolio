@@ -1,6 +1,11 @@
 ---
 titre: Carib Holidays
-resume: "Deux sites d'agence de voyages, développés seul en alternance : Carib Holidays (voyages dans les Caraïbes) et Vacances Dominique, sa déclinaison dédiée à la Dominique."
+accroche: Les Caraïbes en ligne, avec un seul développeur aux commandes
+type: Agence de voyages
+annee: 2025 – 2026
+teinte: lagon
+domaine: caribholidays.fr
+resume: "Deux sites d'agence de voyages développés seul en alternance : Carib Holidays et sa déclinaison Vacances Dominique."
 label: Client réel · 2 sites
 stack: [PHP, CSS, JavaScript, CKEditor, SEO]
 ordre: 1

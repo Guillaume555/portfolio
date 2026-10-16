@@ -1,0 +1,20 @@
+---
+import { recommandation } from "../data/site";
+
+// tant qu'il n'y a pas de vraie recommandation, on l'affiche seulement en local (jamais en ligne)
+const r = recommandation;
+const afficher = r.texte || import.meta.env.DEV;
+---
+{afficher && (
+  <section class="mx-auto max-w-[1120px] px-6 py-16 md:py-24">
+    <figure class="mx-auto max-w-3xl text-center">
+      <p class="font-titre text-6xl leading-none text-corail" aria-hidden="true">“</p>
+      <blockquote class="font-titre text-2xl leading-snug font-semibold md:text-3xl">
+        {r.texte || "[Recommandation à venir : quelques lignes de mon tuteur chez Carib Holidays sur mon travail, mon autonomie et la qualité de ce que j'ai livré.]"}
+      </blockquote>
+      <figcaption class="mt-6 text-texte-doux">
+        <span class="font-medium text-texte">{r.auteur || "[Nom]"}</span> · {r.role || "[Poste], Carib Holidays"}
+      </figcaption>
+    </figure>
+  </section>
+)}

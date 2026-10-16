@@ -8,6 +8,16 @@ export const moi = {
   photo: "/photo.webp", // fichier dans public/
 };
 
+// carte "Autres projets" de la section Projets (le détail est dans le parcours)
+export const autresProjets = {
+  titre: "Autres projets",
+  nombre: 3,
+  periode: "2024 – 2025",
+  resume: "Sites WordPress, e-commerce, intégration d'API : les projets réalisés pendant mes stages et alternances, détaillés dans mon parcours.",
+  tags: ["WordPress", "WooCommerce", "API"],
+  lien: "#parcours",
+};
+
 export const liens = [
   { nom: "Projets", href: "/#projets" },
   { nom: "Mon approche", href: "/#approche" },

@@ -1,5 +1,10 @@
 ---
 titre: EcoRide
+accroche: Partager la route, de la recherche de trajet à la réservation
+type: Covoiturage · certification
+annee: "[année]"
+teinte: corail
+domaine: "[domaine EcoRide]"
 resume: Plateforme de covoiturage avec comptes, recherche de trajets et réservation. Projet final du titre DWWM, déployé en ligne.
 label: Full-stack · PHP / MySQL
 stack: [PHP, MySQL, Bootstrap, Render, Aiven]

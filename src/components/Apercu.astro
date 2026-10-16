@@ -1,0 +1,29 @@
+---
+// capture d'un site présentée dans une fenêtre de navigateur, sur un fond coloré
+const { capture, domaine, titre, teinte = "lagon", grand = false } = Astro.props;
+
+const fonds = {
+  lagon: "bg-accent-doux",
+  corail: "bg-corail-doux",
+  sable: "bg-bordure",
+};
+---
+<div class:list={["flex items-center justify-center", fonds[teinte], grand ? "p-6 md:p-14" : "px-6 pt-6"]}>
+  <div class:list={["w-full overflow-hidden border border-bordure bg-surface", grand ? "rounded-xl shadow-[0_20px_50px_-20px_rgb(16_32_46/0.35)]" : "rounded-t-lg border-b-0"]}>
+    <!-- barre du navigateur -->
+    <div class="flex items-center gap-2 border-b border-bordure px-3 py-2">
+      <span class="flex gap-1" aria-hidden="true">
+        <span class="h-2 w-2 rounded-full bg-degrade-2"></span>
+        <span class="h-2 w-2 rounded-full bg-[#e8b44c]"></span>
+        <span class="h-2 w-2 rounded-full bg-degrade-1"></span>
+      </span>
+      <span class="truncate text-[11px] text-texte-doux">{domaine}</span>
+    </div>
+
+    {capture ? (
+      <img src={capture} alt={`Page d'accueil du site ${titre}`} loading="lazy" class="aspect-[16/9] w-full object-cover object-top" />
+    ) : (
+      <div class="flex aspect-[16/9] w-full items-center justify-center text-sm text-texte-doux">Capture à venir</div>
+    )}
+  </div>
+</div>

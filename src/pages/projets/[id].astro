@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import Apercu from "../../components/Apercu.astro";
 
 // crée une page par projet (version simple, on la travaillera en phase 4)
 export async function getStaticPaths() {
@@ -19,8 +20,13 @@ const p = projet.data;
   <main class="mx-auto max-w-3xl px-6 py-12 md:py-20">
     <a href="/#projets" class="text-sm font-medium text-accent hover:underline">← Retour aux projets</a>
     <p class="mt-8 text-sm font-medium text-corail">{p.label}</p>
-    <h1 class="mt-2 font-titre text-4xl font-extrabold tracking-tight md:text-5xl">{p.titre}</h1>
+    <h1 class="mt-2 font-titre text-4xl font-extrabold tracking-tight md:text-5xl">{p.titre}<span class="text-corail">.</span></h1>
+    <p class="mt-2 text-xl font-medium">{p.accroche}</p>
     <p class="mt-4 text-lg text-texte-doux">{p.resume}</p>
+
+    <div class="mt-10 overflow-hidden rounded-[28px]">
+      <Apercu capture={p.capture} domaine={p.domaine ?? p.titre} titre={p.titre} teinte={p.teinte} grand />
+    </div>
 
     <div class="contenu mt-12">
       <Content />

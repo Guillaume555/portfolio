@@ -10,6 +10,7 @@
   --accent: #0b6670;
   --accent-doux: #dcefed;
   --corail: #b4461f;
+  --corail-doux: #fbe4d8;
 }
 
 /* mode sombre */
@@ -22,6 +23,7 @@
   --accent: #5cc8c2;
   --accent-doux: #123b40;
   --corail: #f2784b;
+  --corail-doux: #3b2419;
 }
 
 @theme inline {
@@ -33,6 +35,7 @@
   --color-accent: var(--accent);
   --color-accent-doux: var(--accent-doux);
   --color-corail: var(--corail);
+  --color-corail-doux: var(--corail-doux);
 
   /* cadre photo */
   --color-degrade-1: #5cc8c2;

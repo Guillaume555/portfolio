@@ -1,0 +1,40 @@
+---
+import { autresProjets as a } from "../data/site";
+---
+<article class="flex h-full flex-col overflow-hidden rounded-[20px] border border-bordure bg-surface">
+  <!-- même format que les captures, avec une petite pile de fiches -->
+  <div class="bg-bordure px-6 pt-6" aria-hidden="true">
+    <div class="overflow-hidden rounded-t-lg border border-b-0 border-bordure bg-surface">
+      <div class="flex items-center gap-2 border-b border-bordure px-3 py-2">
+        <span class="flex gap-1">
+          <span class="h-2 w-2 rounded-full bg-degrade-2"></span>
+          <span class="h-2 w-2 rounded-full bg-[#e8b44c]"></span>
+          <span class="h-2 w-2 rounded-full bg-degrade-1"></span>
+        </span>
+        <span class="text-[11px] text-texte-doux">stages · alternances</span>
+      </div>
+      <div class="relative flex aspect-[16/9] items-center justify-center bg-fond">
+        <span class="absolute h-16 w-28 -translate-x-10 -rotate-6 rounded-md border border-bordure bg-surface"></span>
+        <span class="absolute h-16 w-28 translate-x-10 rotate-6 rounded-md border border-bordure bg-surface"></span>
+        <span class="relative flex h-16 w-28 items-center justify-center rounded-md border border-bordure bg-surface font-titre text-2xl font-extrabold text-texte-doux">+{a.nombre}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-1 flex-col p-6">
+    <div class="flex items-center justify-between gap-3">
+      <span class="rounded-full bg-fond px-2.5 py-1 text-[11px] font-medium tracking-wider text-texte-doux uppercase">Stages et alternances</span>
+      <span class="text-xs text-texte-doux">{a.periode}</span>
+    </div>
+
+    <h3 class="mt-4 font-titre text-2xl font-extrabold">{a.titre}<span class="text-corail">.</span></h3>
+    <p class="mt-2 line-clamp-3 text-sm text-texte-doux">{a.resume}</p>
+
+    <div class="mt-auto flex items-end justify-between gap-4 pt-6">
+      <p class="text-xs text-texte-doux">{a.tags.join(" · ")}</p>
+      <a href={a.lien} class="shrink-0 text-sm font-medium text-accent hover:underline">
+        Voir <span aria-hidden="true">→</span><span class="sr-only"> mes autres projets dans le parcours</span>
+      </a>
+    </div>
+  </div>
+</article>
