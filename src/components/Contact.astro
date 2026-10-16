@@ -1,29 +1,50 @@
 ---
 import { moi } from "../data/site";
+
+const portes = [
+  {
+    titre: "Vous recrutez ?",
+    texte: "Je cherche une alternance full-stack : 2 semaines en entreprise, 1 semaine à l'école, jusqu'en juillet 2027. Mon CV est à un clic.",
+    lien: moi.cv,
+    action: "Télécharger mon CV",
+    telecharger: true,
+  },
+  {
+    titre: "Vous avez un projet ?",
+    texte: "Site vitrine, refonte, interface d'administration ou intégration d'API : je prends des missions en freelance.",
+    lien: `mailto:${moi.email}?subject=Projet%20de%20site`,
+    action: "Parler de mon projet",
+    telecharger: false,
+  },
+];
 ---
 <section id="contact" class="mx-auto max-w-[1120px] px-6 py-16 md:py-24">
   <div class="rounded-[32px] bg-texte px-6 py-12 text-fond md:px-16 md:py-16">
     <p class="text-sm font-medium tracking-wide uppercase opacity-80">Contact</p>
     <h2 class="mt-2 max-w-2xl font-titre text-3xl font-extrabold tracking-tight md:text-5xl">
-      Vous cherchez un alternant ? Parlons-en.
+      Un poste, un projet ? <span class="whitespace-nowrap">Parlons-en.</span>
     </h2>
-    <p class="mt-4 max-w-xl opacity-80">
-      Disponible pour une alternance de 2 semaines en entreprise / 1 semaine à l'école, jusqu'en juillet 2027.
-    </p>
 
-    <div class="mt-8 flex flex-wrap items-center gap-4">
-      <button id="copier-email" type="button" data-email={moi.email} class="inline-flex min-h-12 cursor-pointer items-center rounded-full bg-fond px-6 font-medium text-texte transition hover:bg-accent-doux">
-        Copier mon email
-      </button>
-      <a href={`mailto:${moi.email}`} class="inline-flex min-h-12 items-center rounded-full border-2 border-fond px-6 font-medium transition hover:bg-fond hover:text-texte">
-        M'écrire
-      </a>
+    <!-- deux portes d'entrée : recruteurs et clients -->
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {portes.map((p) => (
+        <div class="flex flex-col rounded-[20px] border border-fond/20 p-6">
+          <h3 class="font-titre text-xl font-extrabold">{p.titre}</h3>
+          <p class="mt-2 opacity-80">{p.texte}</p>
+          <a href={p.lien} download={p.telecharger ? true : undefined} class="mt-6 inline-flex min-h-11 items-center self-start rounded-full bg-fond px-5 text-sm font-medium text-texte transition hover:bg-accent-doux">
+            {p.action}
+          </a>
+        </div>
+      ))}
     </div>
 
-    <ul class="mt-8 flex flex-wrap gap-6 text-sm font-medium">
-      <li><a href={moi.linkedin} class="underline-offset-4 hover:underline">LinkedIn</a></li>
-      <li><a href={moi.github} class="underline-offset-4 hover:underline">GitHub</a></li>
-    </ul>
+    <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium">
+      <button id="copier-email" type="button" data-email={moi.email} class="cursor-pointer underline-offset-4 hover:underline">
+        Copier mon email
+      </button>
+      <a href={moi.linkedin} class="underline-offset-4 hover:underline">LinkedIn</a>
+      <a href={moi.github} class="underline-offset-4 hover:underline">GitHub</a>
+    </div>
   </div>
 </section>
 
