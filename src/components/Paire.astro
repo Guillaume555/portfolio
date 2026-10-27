@@ -1,0 +1,15 @@
+---
+// deux captures côte à côte (quand les formats sont trop différents pour un curseur)
+const { avant, apres, titre, legende, etroit = false } = Astro.props;
+---
+<figure>
+  <div class:list={["grid items-start gap-4 sm:grid-cols-2", etroit && "mx-auto max-w-2xl"]}>
+    {[{ src: avant, mot: "Avant", fond: "bg-texte/80" }, { src: apres, mot: "Après", fond: "bg-accent" }].map((c) => (
+      <div class="relative overflow-hidden rounded-[20px] border border-bordure bg-surface">
+        <img src={c.src} alt={`${titre} : ${c.mot === "Avant" ? "ancienne" : "nouvelle"} version`} loading="lazy" class="block w-full" />
+        <span class:list={["absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-medium text-fond", c.fond]}>{c.mot}</span>
+      </div>
+    ))}
+  </div>
+  {legende && <figcaption class="mt-3 text-sm text-texte-doux"><span class="font-medium text-texte">{titre}.</span> {legende}</figcaption>}
+</figure>
