@@ -9,6 +9,7 @@ Ancien portfolio perdu, ainsi qu'une partie des anciens projets. Le nouveau port
 ## 2. Objectifs
 
 - Faire comprendre en quelques secondes **qui je suis, ce que je cherche et comment me contacter**.
+- Parler à deux publics : les **recruteurs** (alternance, priorité) et les **clients** (missions freelance).
 - **Prouver** mes compétences par des projets réels, expliqués et en ligne, plutôt que par une liste d'outils.
 - Montrer une **utilisation maîtrisée de l'IA** : aller vite, mais comprendre, vérifier et assumer ce qui est livré.
 - Être lui-même une preuve de qualité : rapide, accessible, bien référencé, responsive.
@@ -49,6 +50,11 @@ Ancien portfolio perdu, ainsi qu'une partie des anciens projets. Le nouveau port
 - **Parcours** : une frise unique, organisée par formation (EPSI → Studi → IUT MMI), avec les entreprises rattachées à la formation pendant laquelle j'y ai travaillé (Carib Holidays, Thalia Caraïbes, CSBF, stage Aligné). Missions repliables pour ne pas surcharger. Si la frise reste trop chargée : détails déplacés vers une carte « Autres projets ».
 - **Projets principaux** (captures + étude de cas) : Carib Holidays (une seule étude de cas couvrant les 2 sites : Carib Holidays et Vacances Dominique) et EcoRide. Un 3e projet viendra plus tard.
 - **Source de vérité** pour les dates et intitulés : le CV.
+- **Projets** : carrousel de cartes compactes (mockup navigateur) + carte « Autres projets » qui renvoie vers le parcours.
+- **Contact** à deux entrées : « Vous recrutez ? » et « Vous avez un projet ? ».
+- **Études de cas** : gabarit commun (contexte, approche, avant/après, difficultés, résultats, recul). Données clients floutées, aucun prénom de collègue.
+- **EcoRide** : présenté honnêtement (ce qui n'est pas encore fait est listé). Liens vers le site et le dépôt désactivés tant que les bloquants côté EcoRide ne sont pas corrigés.
+- **Recommandation** : reportée, à intégrer quand le texte sera disponible.
 
 ## 5. Arborescence
 
@@ -93,8 +99,8 @@ Contexte · problème · mon rôle · stack · 2-3 décisions techniques · une 
 | 0 — Cadrage | Objectifs, cible, stack, direction visuelle (caribéenne) | ✅ Fait |
 | 1 — Fondations | Projet Astro, GitHub, tokens, layout, déploiement | ✅ Fait (déploiement reporté) |
 | 2 — Contenu | Textes, captures, fichiers projets | ⏳ |
-| 3 — Accueil | Sections une par une | 🔄 En cours (header, hero) |
-| 4 — Pages projets | Gabarit étude de cas | ⏳ |
+| 3 — Accueil | Sections une par une | ✅ Fait (finitions en phase 5) |
+| 4 — Pages projets | Gabarit étude de cas | ✅ Fait : Carib Holidays, EcoRide |
 | 5 — Qualité | Mobile, a11y, SEO, perf, mode sombre | ⏳ |
 | 6 — Mise en ligne V1 | Relecture, domaine, liens CV/LinkedIn | ⏳ |
 | 7 — Itérations | Nouveaux projets, portfolio interactif, mises à jour | ⏳ |
@@ -108,3 +114,7 @@ Contexte · problème · mon rôle · stack · 2-3 décisions techniques · une 
 | 16/10/2026 | Accueil — haut de page | Header et Hero (badge dispo, accroche, bio, boutons, emplacement photo), fins de ligne LF |
 | 16/10/2026 | Accueil complète | Sections Projets (collection de contenu, emplacements captures), Mon approche, Parcours, Contact (copier l'email), Footer ; pages projets simples |
 | 16/10/2026 | Structure | Frise par formation avec entreprises rattachées (données du CV), étude de cas Carib Holidays sur 2 sites, décisions de structure |
+| 17/10/2026 | Projets et contact | Mockups navigateur, carrousel compact, carte « Autres projets », double cible alternance / freelance |
+| 19/10/2026 | Étude de cas Carib Holidays | Gabarit d'étude de cas, curseur avant/après, captures floutées, Vacances Dominique |
+| 28/10/2026 | Étude de cas EcoRide | Contenu complet, galerie ordinateur et mobile, encadré compte de démo (désactivé) |
+| 29/10/2026 | Menu mobile | Menu burger accessible (clavier, Échap, aria-expanded) |

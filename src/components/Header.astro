@@ -1,18 +1,50 @@
 ---
 import { liens } from "../data/site";
 ---
-<header class="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-8">
+<header class="relative mx-auto flex max-w-[1120px] items-center justify-between px-6 py-8">
   <a href="/" class="font-titre text-2xl font-extrabold">
     Guillaume<span class="text-corail">.</span>
   </a>
 
-  <nav aria-label="Navigation principale">
-    <ul class="hidden gap-8 text-[15px] font-medium md:flex">
+  <!-- menu ordinateur -->
+  <nav aria-label="Navigation principale" class="hidden md:block">
+    <ul class="flex gap-8 text-[15px] font-medium">
       {liens.map((l) => (
-        <li>
-          <a href={l.href} class="transition-colors hover:text-accent">{l.nom}</a>
-        </li>
+        <li><a href={l.href} class="transition-colors hover:text-accent">{l.nom}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- menu mobile -->
+  <button id="btn-menu" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu" class="flex h-11 w-11 items-center justify-center rounded-full border border-bordure md:hidden">
+    <svg class="icone-ouvrir h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    <svg class="icone-fermer hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+  </button>
+
+  <nav id="menu-mobile" aria-label="Navigation mobile" class="absolute inset-x-6 top-full z-20 hidden rounded-[20px] border border-bordure bg-surface p-2 shadow-lg md:hidden">
+    <ul>
+      {liens.map((l) => (
+        <li><a href={l.href} class="block rounded-xl px-4 py-3 font-medium hover:bg-accent-doux hover:text-accent">{l.nom}</a></li>
       ))}
     </ul>
   </nav>
 </header>
+
+<script>
+  // ouvre / ferme le menu mobile
+  const btn = document.getElementById("btn-menu");
+  const menu = document.getElementById("menu-mobile");
+
+  function basculer(ouvrir: boolean) {
+    if (!btn || !menu) return;
+    menu.classList.toggle("hidden", !ouvrir);
+    btn.setAttribute("aria-expanded", String(ouvrir));
+    btn.setAttribute("aria-label", ouvrir ? "Fermer le menu" : "Ouvrir le menu");
+    btn.querySelector(".icone-ouvrir")?.classList.toggle("hidden", ouvrir);
+    btn.querySelector(".icone-fermer")?.classList.toggle("hidden", !ouvrir);
+  }
+
+  btn?.addEventListener("click", () => basculer(btn.getAttribute("aria-expanded") !== "true"));
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => basculer(false)));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") basculer(false); });
+</script>

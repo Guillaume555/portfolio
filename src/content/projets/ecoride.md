@@ -14,16 +14,9 @@ domaine: ecoride-guillaume.onrender.com
 # lienSite: https://ecoride-guillaume.onrender.com
 # lienCode: https://github.com/Guillaume555/ecoride
 
-# à remettre après avoir testé les comptes en ligne (jamais le compte admin)
+# à remettre en même temps que lienSite
 # demo:
-#   texte: "Le site est hébergé sur une offre gratuite : la première page peut mettre une minute à se réveiller."
-#   comptes:
-#     - role: Passager
-#       identifiant: passager@ecoride.fr
-#       motDePasse: Test1234
-#     - role: Conducteur
-#       identifiant: "[à vérifier]"
-#       motDePasse: "[à vérifier]"
+#   texte: "Créez un compte pour tester tout le parcours : 20 crédits sont offerts à l'inscription. Le site est sur une offre gratuite, la première page peut mettre une minute à se réveiller."
 
 infos:
   - label: Cadre
@@ -113,8 +106,8 @@ annexe:
 stackComplete: ["PHP 8.1 (objet)", PDO, MySQL, MongoDB Atlas, "JavaScript (fetch)", Bootstrap 5.3, Composer, PHPMailer, Docker, Render, Aiven, Git et GitHub, Figma]
 
 resultats:
-  - titre: "[Titre DWWM obtenu en 2026]"
-    texte: "[À confirmer : titre professionnel Développeur Web et Web Mobile, niveau 5.]"
+  - titre: Titre professionnel obtenu
+    texte: "Ce projet m'a permis d'obtenir le titre Développeur Web et Web Mobile (niveau 5, Bac+2) en 2026."
   - titre: Une application en ligne
     texte: "Déployée avec Docker, avec une base relationnelle et une base NoSQL hébergées dans le cloud."
   - titre: Un projet suivi dans le temps

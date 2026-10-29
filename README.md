@@ -25,11 +25,11 @@ Le site est ensuite visible sur `http://localhost:4321`.
 
 ## Scripts
 
-| Commande          | Rôle                                            |
-| ----------------- | ----------------------------------------------- |
-| `npm run dev`     | Serveur de développement avec rechargement auto |
-| `npm run build`   | Génère le site final dans `dist/`               |
-| `npm run preview` | Prévisualise le site généré                     |
+| Commande | Rôle |
+|---|---|
+| `npm run dev` | Serveur de développement avec rechargement auto |
+| `npm run build` | Génère le site final dans `dist/` |
+| `npm run preview` | Prévisualise le site généré |
 
 ## Structure
 
@@ -56,7 +56,9 @@ Couleurs et polices définies dans `src/styles/global.css` à partir de la [char
 ## Avancement
 
 - ✅ Fondations : projet, design tokens, layout commun
-- 🔄 Page d'accueil : header et hero faits, sections suivantes en cours
+- ✅ Page d'accueil complète (projets, approche, parcours, contact, menu mobile)
+- ✅ Études de cas : Carib Holidays, EcoRide
+- 🔄 Prochaine étape : mise en ligne, puis finitions
 
 ## Auteur
 

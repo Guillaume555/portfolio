@@ -55,11 +55,11 @@ const etiquette = "text-sm font-medium tracking-wide text-corail uppercase";
       <div class="mt-8 rounded-[20px] border border-accent/30 bg-accent-doux p-5 md:max-w-3xl">
         <p class="font-medium text-accent">Tester par vous-même</p>
         <p class="mt-1 text-sm">{p.demo.texte}</p>
-        <ul class="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+        {p.demo.comptes.length > 0 && <ul class="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-sm">
           {p.demo.comptes.map((c) => (
             <li><span class="font-medium">{c.role} :</span> <code>{c.identifiant}</code> / <code>{c.motDePasse}</code></li>
           ))}
-        </ul>
+        </ul>}
       </div>
     )}
 

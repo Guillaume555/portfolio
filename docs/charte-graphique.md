@@ -10,17 +10,17 @@ _Version 1 · 14/10/2026_
 
 Règle : dans le code, on utilise **toujours les noms sémantiques** (`fond`, `texte`, `accent`…), jamais un code hexa en dur. Le mode sombre = les mêmes noms avec d'autres valeurs.
 
-| Token                     | Rôle                                    | Clair               | Sombre                  |
-| ------------------------- | --------------------------------------- | ------------------- | ----------------------- |
-| `fond`                    | Fond de page                            | `#F7F1E6` sable     | `#0F1B26` nuit profonde |
-| `surface`                 | Cartes, blocs                           | `#FFFAF2`           | `#172735`               |
-| `bordure`                 | Contours discrets                       | `#EBE1D0`           | `#2A3B4A`               |
-| `texte`                   | Texte principal                         | `#10202E` nuit      | `#F3ECE0` sable clair   |
-| `texte-doux`              | Texte secondaire                        | `#3D4B57`           | `#B9C2C9`               |
-| `accent`                  | Liens, mots clés, badge                 | `#0B6670` lagon     | `#5CC8C2` lagon clair   |
-| `accent-doux`             | Fond du badge                           | `#DCEFED`           | `#123B40`               |
-| `corail`                  | Petites touches (point du logo, labels) | `#B4461F`           | `#F2784B`               |
-| `degrade-1` → `degrade-2` | Cadre photo uniquement                  | `#5CC8C2 → #F2784B` | idem                    |
+| Token | Rôle | Clair | Sombre |
+|---|---|---|---|
+| `fond` | Fond de page | `#F7F1E6` sable | `#0F1B26` nuit profonde |
+| `surface` | Cartes, blocs | `#FFFAF2` | `#172735` |
+| `bordure` | Contours discrets | `#EBE1D0` | `#2A3B4A` |
+| `texte` | Texte principal | `#10202E` nuit | `#F3ECE0` sable clair |
+| `texte-doux` | Texte secondaire | `#3D4B57` | `#B9C2C9` |
+| `accent` | Liens, mots clés, badge | `#0B6670` lagon | `#5CC8C2` lagon clair |
+| `accent-doux` | Fond du badge | `#DCEFED` | `#123B40` |
+| `corail` | Petites touches (point du logo, labels) | `#B4461F` | `#F2784B` |
+| `degrade-1` → `degrade-2` | Cadre photo uniquement | `#5CC8C2 → #F2784B` | idem |
 
 ⚠️ Les valeurs du mode sombre sont **provisoires**, à valider visuellement.
 
@@ -28,18 +28,18 @@ Contrastes : `texte`, `texte-doux` et `accent` respectent AA (4,5:1) sur `fond` 
 
 ## Typographie
 
-| Usage                  | Police                  | Graisse   |
-| ---------------------- | ----------------------- | --------- |
-| Titres, logo           | **Bricolage Grotesque** | 600 / 800 |
-| Texte courant, boutons | **DM Sans**             | 400 / 500 |
+| Usage | Police | Graisse |
+|---|---|---|
+| Titres, logo | **Bricolage Grotesque** | 600 / 800 |
+| Texte courant, boutons | **DM Sans** | 400 / 500 |
 
-| Élément             | Mobile   | Desktop                  |
-| ------------------- | -------- | ------------------------ |
-| H1 (hero)           | 40 px    | 62 px, interlignage 1.05 |
-| H2 (section)        | 28 px    | 36 px                    |
-| H3 (carte)          | 22 px    | 24 px                    |
-| Texte               | 17 px    | 19 px, interlignage 1.6  |
-| Petit texte / label | 13–14 px | 13–14 px                 |
+| Élément | Mobile | Desktop |
+|---|---|---|
+| H1 (hero) | 40 px | 62 px, interlignage 1.05 |
+| H2 (section) | 28 px | 36 px |
+| H3 (carte) | 22 px | 24 px |
+| Texte | 17 px | 19 px, interlignage 1.6 |
+| Petit texte / label | 13–14 px | 13–14 px |
 
 Titres en léger resserrement (`letter-spacing: -0.02em`).
 
@@ -66,7 +66,7 @@ Titres en léger resserrement (`letter-spacing: -0.02em`).
 
 ## Historique
 
-| Version | Date       | Changement                                                                                 |
-| ------- | ---------- | ------------------------------------------------------------------------------------------ |
-| 1       | 14/10/2026 | Création à partir de la maquette B validée ; ajout des valeurs du mode sombre              |
-| 1.1     | 16/10/2026 | Tokens du dégradé nommés `degrade-1` / `degrade-2` ; couleurs sombres marquées provisoires |
+| Version | Date | Changement |
+|---|---|---|
+| 1 | 14/10/2026 | Création à partir de la maquette B validée ; ajout des valeurs du mode sombre |
+| 1.1 | 16/10/2026 | Tokens du dégradé nommés `degrade-1` / `degrade-2` ; couleurs sombres marquées provisoires |

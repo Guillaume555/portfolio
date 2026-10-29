@@ -42,7 +42,7 @@ const projets = defineCollection({
     mobiles: z.array(z.object({ src: z.string(), legende: z.string() })).default([]),
     demo: z.object({
       texte: z.string(),
-      comptes: z.array(z.object({ role: z.string(), identifiant: z.string(), motDePasse: z.string() })),
+      comptes: z.array(z.object({ role: z.string(), identifiant: z.string(), motDePasse: z.string() })).default([]),
     }).optional(),
     difficultes: z.array(z.object({ titre: z.string(), probleme: z.string(), solution: z.string() })).default([]),
     annexe: z.object({
