@@ -50,6 +50,19 @@ const etiquette = "text-sm font-medium tracking-wide text-corail uppercase";
       )}
     </header>
 
+    <!-- compte de démo pour tester le site -->
+    {p.demo && (
+      <div class="mt-8 rounded-[20px] border border-accent/30 bg-accent-doux p-5 md:max-w-3xl">
+        <p class="font-medium text-accent">Tester par vous-même</p>
+        <p class="mt-1 text-sm">{p.demo.texte}</p>
+        <ul class="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+          {p.demo.comptes.map((c) => (
+            <li><span class="font-medium">{c.role} :</span> <code>{c.identifiant}</code> / <code>{c.motDePasse}</code></li>
+          ))}
+        </ul>
+      </div>
+    )}
+
     {p.infos.length > 0 && (
       <dl class="mt-10 grid gap-px overflow-hidden rounded-[20px] border border-bordure bg-bordure sm:grid-cols-2 lg:grid-cols-4">
         {p.infos.map((info) => (
@@ -122,14 +135,35 @@ const etiquette = "text-sm font-medium tracking-wide text-corail uppercase";
       </section>
     )}
 
+    {p.galerie.length > 0 && p.comparaisons.length === 0 && (
+      <div class="mt-20">
+        <p class={etiquette}>En images</p>
+        <h2 class:list={[titreSection, "mt-2"]}>Le site, page par page</h2>
+      </div>
+    )}
     {p.galerie.length > 0 && (
-      <div class="mt-14 grid gap-6 md:grid-cols-2">
+      <div class:list={["grid gap-6 md:grid-cols-2", p.comparaisons.length ? "mt-14" : "mt-8"]}>
         {p.galerie.map((g) => (
           <figure>
             <img src={g.src} alt={g.legende} loading="lazy" class="w-full rounded-[20px] border border-bordure" />
             <figcaption class="mt-3 text-sm text-texte-doux">{g.legende}</figcaption>
           </figure>
         ))}
+      </div>
+    )}
+
+    <!-- captures mobiles -->
+    {p.mobiles.length > 0 && (
+      <div class="mt-14">
+        <h3 class="font-titre text-lg font-extrabold">Sur mobile</h3>
+        <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:max-w-3xl">
+          {p.mobiles.map((m) => (
+            <figure>
+              <img src={m.src} alt={m.legende} loading="lazy" class="w-full rounded-[20px] border border-bordure" />
+              <figcaption class="mt-2 text-sm text-texte-doux">{m.legende}</figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     )}
 
@@ -157,20 +191,20 @@ const etiquette = "text-sm font-medium tracking-wide text-corail uppercase";
 
     <!-- deuxième site ou partie annexe -->
     {p.annexe && (
-      <section class="mt-20 grid items-start gap-10 md:grid-cols-2">
+      <section class:list={["mt-20 grid items-start gap-10", p.annexe.image ? "md:grid-cols-2" : "max-w-3xl"]}>
         <div>
           <p class={etiquette}>Et aussi</p>
           <h2 class:list={[titreSection, "mt-2"]}>{p.annexe.titre}</h2>
           <p class="mt-4 leading-relaxed text-texte-doux">{p.annexe.texte}</p>
           {p.annexe.constats.length > 0 && (
             <>
-              <h3 class="mt-6 font-medium">Ce que j'ai trouvé</h3>
+              <h3 class="mt-6 font-medium">{p.annexe.titreConstats}</h3>
               <ul class="mt-2 list-disc space-y-1 pl-5 text-texte-doux">{p.annexe.constats.map((c) => <li>{c}</li>)}</ul>
             </>
           )}
           {p.annexe.actions.length > 0 && (
             <>
-              <h3 class="mt-6 font-medium">Ce que j'ai fait</h3>
+              <h3 class="mt-6 font-medium">{p.annexe.titreActions}</h3>
               <ul class="mt-2 list-disc space-y-1 pl-5 text-texte-doux">{p.annexe.actions.map((a) => <li>{a}</li>)}</ul>
             </>
           )}

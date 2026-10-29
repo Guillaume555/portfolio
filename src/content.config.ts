@@ -39,10 +39,17 @@ const projets = defineCollection({
       etroit: z.boolean().default(false),
     })).default([]),
     galerie: z.array(z.object({ src: z.string(), legende: z.string() })).default([]),
+    mobiles: z.array(z.object({ src: z.string(), legende: z.string() })).default([]),
+    demo: z.object({
+      texte: z.string(),
+      comptes: z.array(z.object({ role: z.string(), identifiant: z.string(), motDePasse: z.string() })),
+    }).optional(),
     difficultes: z.array(z.object({ titre: z.string(), probleme: z.string(), solution: z.string() })).default([]),
     annexe: z.object({
       titre: z.string(),
       texte: z.string(),
+      titreConstats: z.string().default("Ce que j'ai trouvé"),
+      titreActions: z.string().default("Ce que j'ai fait"),
       constats: z.array(z.string()).default([]),
       actions: z.array(z.string()).default([]),
       image: z.string().optional(),
