@@ -3,7 +3,7 @@ export const moi = {
   nom: "Guillaume Papalia",
   email: "papaliaguillaume9@gmail.com",
   github: "https://github.com/Guillaume555",
-  linkedin: "[lien LinkedIn]",
+  linkedin: "https://www.linkedin.com/in/guillaume-papalia-6445692a0/",
   cv: "/cv-guillaume.pdf",
   photo: "/photo.webp", // fichier dans public/
 };
