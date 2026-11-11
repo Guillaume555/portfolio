@@ -26,7 +26,8 @@ jobs:
       - name: Chercher les liens cassés
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --root-dir "${{ github.workspace }}/dist" --no-progress "dist/**/*.html"
+          # LinkedIn bloque les robots (code 999) : on ne le vérifie pas
+          args: --root-dir "${{ github.workspace }}/dist" --no-progress --exclude "linkedin\.com" "dist/**/*.html"
           fail: true
 
       - name: Lighthouse (performance, accessibilité, SEO)
