@@ -18,8 +18,28 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- signale que le JS tourne : sans JS, rien n'est caché -->
+    <script is:inline>document.documentElement.classList.add("js");</script>
   </head>
   <body class="bg-fond text-texte font-texte antialiased">
     <slot />
+
+    <script>
+      // fait apparaître chaque section quand elle arrive à l'écran
+      const blocs = document.querySelectorAll("main > section:not(:first-child) > *");
+      const vus = new IntersectionObserver((entrees) => {
+        entrees.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("visible");
+          vus.unobserve(e.target);
+        });
+      }, { rootMargin: "0px 0px -10% 0px" });
+
+      blocs.forEach((b) => {
+        b.classList.add("apparait");
+        vus.observe(b);
+      });
+    </script>
   </body>
 </html>

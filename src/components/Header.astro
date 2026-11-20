@@ -1,34 +1,37 @@
 ---
 import { liens } from "../data/site";
 ---
-<header class="relative mx-auto flex max-w-[1120px] items-center justify-between px-6 py-8">
-  <a href="/" class="font-titre text-2xl font-extrabold">
-    Guillaume<span class="text-corail">.</span>
-  </a>
+<!-- header collé en haut de l'écran -->
+<div id="entete" class="sticky top-0 z-30 border-b border-transparent bg-fond/85 backdrop-blur-md transition-[border-color,box-shadow] duration-300">
+  <header class="relative mx-auto flex max-w-[1120px] items-center justify-between px-6 py-5 md:py-6">
+    <a href="/" class="font-titre text-2xl font-extrabold">
+      Guillaume<span class="text-corail">.</span>
+    </a>
 
-  <!-- menu ordinateur -->
-  <nav aria-label="Navigation principale" class="hidden md:block">
-    <ul class="flex gap-8 text-[15px] font-medium">
-      {liens.map((l) => (
-        <li><a href={l.href} class="transition-colors hover:text-accent">{l.nom}</a></li>
-      ))}
-    </ul>
-  </nav>
+    <!-- menu ordinateur -->
+    <nav aria-label="Navigation principale" class="hidden md:block">
+      <ul class="flex gap-2 text-[15px] font-medium">
+        {liens.map((l) => (
+          <li><a href={l.href} class="lien-nav rounded-full px-4 py-2 transition-colors hover:text-accent">{l.nom}</a></li>
+        ))}
+      </ul>
+    </nav>
 
-  <!-- menu mobile -->
-  <button id="btn-menu" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu" class="flex h-11 w-11 items-center justify-center rounded-full border border-bordure md:hidden">
-    <svg class="icone-ouvrir h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-    <svg class="icone-fermer hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
-  </button>
+    <!-- menu mobile -->
+    <button id="btn-menu" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu" class="flex h-11 w-11 items-center justify-center rounded-full border border-bordure md:hidden">
+      <svg class="icone-ouvrir h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      <svg class="icone-fermer hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
 
-  <nav id="menu-mobile" aria-label="Navigation mobile" class="absolute inset-x-6 top-full z-20 hidden rounded-[20px] border border-bordure bg-surface p-2 shadow-lg md:hidden">
-    <ul>
-      {liens.map((l) => (
-        <li><a href={l.href} class="block rounded-xl px-4 py-3 font-medium hover:bg-accent-doux hover:text-accent">{l.nom}</a></li>
-      ))}
-    </ul>
-  </nav>
-</header>
+    <nav id="menu-mobile" aria-label="Navigation mobile" class="absolute inset-x-6 top-full z-20 hidden rounded-[20px] border border-bordure bg-surface p-2 shadow-lg md:hidden">
+      <ul>
+        {liens.map((l) => (
+          <li><a href={l.href} class="lien-nav block rounded-xl px-4 py-3 font-medium hover:bg-accent-doux hover:text-accent">{l.nom}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </header>
+</div>
 
 <script>
   // ouvre / ferme le menu mobile
@@ -47,4 +50,30 @@ import { liens } from "../data/site";
   btn?.addEventListener("click", () => basculer(btn.getAttribute("aria-expanded") !== "true"));
   menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => basculer(false)));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") basculer(false); });
+
+  // petite ombre sous le header dès qu'on a défilé
+  const entete = document.getElementById("entete");
+  const ombre = () => entete?.classList.toggle("defile", window.scrollY > 8);
+  window.addEventListener("scroll", ombre, { passive: true });
+  ombre();
+
+  // allume le lien de la section visible à l'écran
+  const liensNav = document.querySelectorAll<HTMLAnchorElement>(".lien-nav");
+  const sections = [...liensNav]
+    .map((a) => document.getElementById(a.hash.slice(1)))
+    .filter((s, i, tab): s is HTMLElement => !!s && tab.indexOf(s) === i);
+
+  const suivi = new IntersectionObserver((entrees) => {
+    entrees.forEach((e) => {
+      if (!e.isIntersecting) return;
+      liensNav.forEach((a) => {
+        const actif = a.hash === `#${e.target.id}`;
+        a.classList.toggle("actif", actif);
+        if (actif) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
+      });
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+
+  sections.forEach((s) => suivi.observe(s));
 </script>

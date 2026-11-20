@@ -24,11 +24,11 @@ const fleche = "flex h-11 w-11 items-center justify-center rounded-full border b
 
   <ul id="carrousel" class="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
     {projets.map((projet) => (
-      <li class="w-[85%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
+      <li class="relative w-[85%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
         <CarteProjet projet={projet} />
       </li>
     ))}
-    <li class="w-[85%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
+    <li class="relative w-[85%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
       <CarteAutres />
     </li>
   </ul>
